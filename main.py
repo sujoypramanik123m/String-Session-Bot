@@ -16,6 +16,7 @@ UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "")
 BOT_OWNER = int(os.environ["BOT_OWNER"])
 DATABASE_URL = os.environ["DATABASE_URL"]
 db = Database(DATABASE_URL, "mediatourl")
+IMGBB_API_KEY = ""
 
 Bot = Client(
     "Media To Url Bot",
@@ -127,8 +128,13 @@ async def donation(bot, message):
     await yt.delete()
     await message.delete()
 
-def upload_image_requests(image_path):
-    upload_url = "https://envs.sh"
+def upload_image_requests(image_path, upload_service):
+    if upload_service == "envs.sh":
+        upload_url = "https://envs.sh"
+    elif upload_service == "imgbb":
+        upload_url = f"https://api.imgbb.com/1/upload?key={IMGBB_API_KEY}"
+    else:
+        raise ValueError("Unsupported upload service")
 
     try:
         with open(image_path, 'rb') as file:
@@ -136,7 +142,13 @@ def upload_image_requests(image_path):
             response = requests.post(upload_url, files=files)
 
             if response.status_code == 200:
-                return response.text.strip() 
+                if upload_service == "imgbb":
+                    response_data = response.json()
+                    if response_data['success']:
+                        return response_data['data']['url']
+                    else:
+                        raise Exception(response_data['error']['message'])
+                return response.text.strip()  # for envs.sh
             else:
                 raise Exception(f"Upload failed with status code {response.status_code}")
 
@@ -169,19 +181,32 @@ async def upload(client, message):
             return
 
     file_size_limit = 10 * 1024 * 1024  # 10 MB in bytes
-    if message.document and message.document.file_size > file_size_limit:
-        await message.reply_text("<b>⚠️ ꜱᴇɴᴅ ᴀ ᴍᴇᴅɪᴀ ᴜɴᴅᴇʀ 𝟷𝟶 ᴍʙ</b>")
-        return
-    elif message.photo and message.photo.file_size > file_size_limit:
+    if (message.document and message.document.file_size > file_size_limit) or (message.photo and message.photo.file_size > file_size_limit):
         await message.reply_text("<b>⚠️ ꜱᴇɴᴅ ᴀ ᴍᴇᴅɪᴀ ᴜɴᴅᴇʀ 𝟷𝟶 ᴍʙ</b>")
         return
 
     path = await message.download()
 
-    uploading_message = await message.reply_text("<code>ᴜᴘʟᴏᴀᴅɪɴɢ...</code>")
+    uploading_message = await message.reply_text("<code>Select upload service:</code>",
+        reply_markup=InlineKeyboardMarkup([
+            [
+                InlineKeyboardButton(text="envs.sh", callback_data="upload_envs"),
+                InlineKeyboardButton(text="imgbb", callback_data="upload_imgbb")
+            ]
+        ])
+    )
+
+@Bot.on_callback_query(filters.regex(r"^upload_(envs|imgbb)$"))
+async def handle_upload(client, query):
+    upload_service = query.data.split('_')[1]
+
+    # Download the media
+    path = await query.message.reply_to_message.download()
+
+    uploading_message = await query.message.reply_text(f"<code>Uploading to {upload_service}...</code>")
 
     try:
-        image_url = upload_image_requests(path)
+        image_url = upload_image_requests(path, upload_service)
         if not image_url:
             raise Exception("Failed to upload file.")
     except Exception as error:
@@ -192,21 +217,21 @@ async def upload(client, message):
         os.remove(path)
     except Exception as error:
         print(f"Error removing file: {error}")
-        
+
     await uploading_message.delete()
-    codexbots=await message.reply_photo(
-        photo=f'{image_url}',
-        caption=f"<b>ʏᴏᴜʀ ᴄʟᴏᴜᴅ ʟɪɴᴋ ᴄᴏᴍᴘʟᴇᴛᴇᴅ 👇</b>\n\n𝑳𝒊𝒏𝒌 :-\n\n<code>{image_url}</code> \n\n<b>ʙʏ - <a href='https://telegram.me/CodeXBro'>ʀᴀʜᴜʟ</a></b>",
-        #disable_web_page_preview=True,
+
+    await query.message.reply_photo(
+        photo=image_url,
+        caption=f"<b>Upload completed to {upload_service} 👇</b>\n\nLink:\n\n<code>{image_url}</code>\n\n<b>ʙʏ - <a href='https://telegram.me/CodeXBro'>ʀᴀʜᴜʟ</a></b>",
         reply_markup=InlineKeyboardMarkup([[
             InlineKeyboardButton(text="• ᴏᴘᴇɴ ʟɪɴᴋ •", url=image_url),
             InlineKeyboardButton(text="• sʜᴀʀᴇ ʟɪɴᴋ •", url=f"https://telegram.me/share/url?url={image_url}")
         ], [
             InlineKeyboardButton(text="❌   ᴄʟᴏsᴇ   ❌", callback_data="close_data")
         ]])
-   )
+    )
     await asyncio.sleep(120)
-    await codexbots.delete()
+    await query.message.delete()
 
 @Bot.on_message(filters.private & filters.command("users") & filters.user(BOT_OWNER))
 async def users(bot, update):
