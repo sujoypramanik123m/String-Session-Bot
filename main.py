@@ -185,9 +185,9 @@ async def upload(client, message):
         await message.reply_text("<b>⚠️ ꜱᴇɴᴅ ᴀ ᴍᴇᴅɪᴀ ᴜɴᴅᴇʀ 𝟷𝟶 ᴍʙ</b>")
         return
 
-    path = await message.download()
-
-    uploading_message = await message.reply_text("<code>Select upload service:</code>",
+    # Send a message to choose the upload service
+    await message.reply_text(
+        "<code>Select upload service:</code>",
         reply_markup=InlineKeyboardMarkup([
             [
                 InlineKeyboardButton(text="envs.sh", callback_data="upload_envs"),
@@ -200,8 +200,11 @@ async def upload(client, message):
 async def handle_upload(client, query):
     upload_service = query.data.split('_')[1]
 
+    # Get the original message that had the media
+    original_message = await client.get_message(query.message.chat.id, query.message.reply_to_message.message_id)
+    
     # Download the media
-    path = await query.message.reply_to_message.download()
+    path = await original_message.download()
 
     uploading_message = await query.message.reply_text(f"<code>Uploading to {upload_service}...</code>")
 
@@ -213,6 +216,7 @@ async def handle_upload(client, query):
         await uploading_message.edit_text(f"Upload failed: {error}")
         return
 
+    # Clean up the downloaded file
     try:
         os.remove(path)
     except Exception as error:
