@@ -92,8 +92,8 @@ donate - To Support Developer
 
 ### ☕ BUY ME A COFFEE
 - [PayPal](https://paypal.me/RahulReviews)
-- [UPI](https://codexbots.github.io/Donate)
+- [UPI](https://codexbots.github.io/Donate)</b>
 
 ### 📌 NOTE
 
-𝐂𝐨𝐩𝐲𝐢𝐧𝐠 𝐨𝐫 𝐒𝐞𝐥𝐥𝐢𝐧𝐠 𝐭𝐡𝐢𝐬 𝐫𝐞𝐩𝐨 𝐢𝐬 𝐬𝐭𝐫𝐢𝐜𝐭𝐥𝐲 𝐩𝐫𝐨𝐡𝐢𝐛𝐢𝐭𝐞𝐝.</b>
+𝐂𝐨𝐩𝐲𝐢𝐧𝐠 𝐨𝐫 𝐒𝐞𝐥𝐥𝐢𝐧𝐠 𝐭𝐡𝐢𝐬 𝐫𝐞𝐩𝐨 𝐢𝐬 𝐬𝐭𝐫𝐢𝐜𝐭𝐥𝐲 𝐩𝐫𝐨𝐡𝐢𝐛𝐢𝐭𝐞𝐝.
