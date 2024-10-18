@@ -112,10 +112,13 @@ async def cb_handler(bot, update):
             disable_web_page_preview=True
 	)
     elif update.data == "upload_envs":
-	await handle_upload(bot, update, envs):
+	upload_service = update.data.split('_')[1]
+	await handle_upload(bot, update, upload_service)
 	    
     elif update.data == "upload_imgbb":
-	await handle_upload(bot, update, imgbb):
+	upload_service = update.data.split('_')[1]
+	await handle_upload(bot, update, upload_service)
+	    
     else:
         await update.message.delete()
 
