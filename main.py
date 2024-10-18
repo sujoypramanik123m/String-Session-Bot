@@ -65,7 +65,7 @@ FORCE_SUBSCRIBE_TEXT = """
 START_BUTTONS = InlineKeyboardMarkup(
     [[
         InlineKeyboardButton('ᴅᴇᴠᴇʟᴏᴘᴇʀ', url='https://youtube.com/@RahulReviews')
-	],[
+    ],[
         InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about'),
         InlineKeyboardButton('ꜱᴜᴘᴘᴏʀᴛ', url='https://telegram.me/CodeXSupport')
     ]]
@@ -75,7 +75,7 @@ ABOUT_BUTTONS = InlineKeyboardMarkup(
     [[
         InlineKeyboardButton('🫡 ᴅᴏɴᴀᴛᴇ', url='https://codexbots.github.io/Donate'),
         InlineKeyboardButton('👨‍💻 ᴏᴡɴᴇʀ', url='https://telegram.me/CodexBro')
-	],[
+    ],[
         InlineKeyboardButton('⋞ ʙᴀᴄᴋ', callback_data='home')
     ]]
 )
