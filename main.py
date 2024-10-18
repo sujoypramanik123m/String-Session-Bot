@@ -111,6 +111,11 @@ async def cb_handler(bot, update):
             reply_markup=ABOUT_BUTTONS,
             disable_web_page_preview=True
 	)
+    elif update.data == "upload_envs":
+	await handle_upload(bot, update, envs):
+	    
+    elif update.data == "upload_imgbb":
+	await handle_upload(bot, update, imgbb):
     else:
         await update.message.delete()
 
@@ -230,10 +235,10 @@ async def upload(client, message):
     except Exception as e:
         logging.exception(f"Error in upload message handler: {e}")
 
-@Bot.on_callback_query(filters.regex(r"^upload_(envs|imgbb)$"))
-async def handle_upload(client, query):
+#@Bot.on_callback_query(filters.regex(r"^upload_(envs|imgbb)$"))
+async def handle_upload(client, query, upload_service):
     try:
-        upload_service = query.data.split('_')[1]
+      #  upload_service = query.data.split('_')[1]
         logging.info(f"User {query.from_user.id} selected {upload_service} for upload.")
 
         # Get the original message that had the media (the message that the buttons were replying to)
