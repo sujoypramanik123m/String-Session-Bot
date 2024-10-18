@@ -63,22 +63,22 @@ FORCE_SUBSCRIBE_TEXT = """
 ᴄʟɪᴄᴋ ᴊᴏɪɴ ɴᴏᴡ ʙᴜᴛᴛᴏɴ 👇</b></i>"""
 
 START_BUTTONS = InlineKeyboardMarkup(
-        [[
+    [[
         InlineKeyboardButton('ᴅᴇᴠᴇʟᴏᴘᴇʀ', url='https://youtube.com/@RahulReviews')
 	],[
         InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about'),
         InlineKeyboardButton('ꜱᴜᴘᴘᴏʀᴛ', url='https://telegram.me/CodeXSupport')
-        ]]
-    )
+    ]]
+)
 
 ABOUT_BUTTONS = InlineKeyboardMarkup(
-        [[
+    [[
         InlineKeyboardButton('🫡 ᴅᴏɴᴀᴛᴇ', url='https://codexbots.github.io/Donate'),
         InlineKeyboardButton('👨‍💻 ᴏᴡɴᴇʀ', url='https://telegram.me/CodexBro')
 	],[
         InlineKeyboardButton('⋞ ʙᴀᴄᴋ', callback_data='home')
-        ]]
-    )
+    ]]
+)
 
 
 async def send_msg(user_id, message):
@@ -112,12 +112,12 @@ async def cb_handler(bot, update):
             disable_web_page_preview=True
 	)
     elif update.data == "upload_envs":
-	upload_service = update.data.split('_')[1]
-	await handle_upload(bot, update, upload_service)
+		upload_service = update.data.split('_')[1]
+		await handle_upload(bot, update, upload_service)
 	    
     elif update.data == "upload_imgbb":
-	upload_service = update.data.split('_')[1]
-	await handle_upload(bot, update, upload_service)
+		upload_service = update.data.split('_')[1]
+		await handle_upload(bot, update, upload_service)
 	    
     else:
         await update.message.delete()
@@ -129,7 +129,7 @@ async def start(bot, update):
     await update.reply_text(
         text=START_TEXT.format(update.from_user.mention),
         disable_web_page_preview=True,
-	reply_markup=START_BUTTONS
+	    reply_markup=START_BUTTONS
     )
 
 @Bot.on_message(filters.private & filters.command(["donate"]))
@@ -223,16 +223,16 @@ async def upload(client, message):
 
         # Send a message to choose the upload service
         await client.send_message(
-    chat_id=message.chat.id,
-    text="<b>Select upload service:</b>n<code>Please choose one of the options below:</code>",
-    reply_markup=InlineKeyboardMarkup([
-        [
-            InlineKeyboardButton(text="envs.sh", callback_data="upload_envs"),
-            InlineKeyboardButton(text="imgbb", callback_data="upload_imgbb")
-        ]
-    ]),
-    reply_to_message_id=message.id
-)
+            chat_id=message.chat.id,
+            text="<b>Select upload service:</b>n<code>Please choose one of the options below:</code>",
+            reply_markup=InlineKeyboardMarkup(
+				[[
+                    InlineKeyboardButton(text="envs.sh", callback_data="upload_envs"),
+                    InlineKeyboardButton(text="imgbb", callback_data="upload_imgbb")
+				]]
+			),
+            reply_to_message_id=message.id
+        )
         logging.info(f"Presented upload options to user {message.chat.id}.")
 
     except Exception as e:
@@ -280,7 +280,7 @@ async def handle_upload(client, query, upload_service):
             reply_markup=InlineKeyboardMarkup([[
                 InlineKeyboardButton(text="• ᴏᴘᴇɴ ʟɪɴᴋ •", url=image_url),
                 InlineKeyboardButton(text="• sʜᴀʀᴇ ʟɪɴᴋ •", url=f"https://telegram.me/share/url?url={image_url}")
-            ], [
+            ],[
                 InlineKeyboardButton(text="❌   ᴄʟᴏsᴇ   ❌", callback_data="close_data")
             ]])
         )
