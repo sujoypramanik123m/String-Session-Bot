@@ -81,21 +81,21 @@ ABOUT_BUTTONS = InlineKeyboardMarkup(
 )
 
 async def send_msg(user_id, message):
-	try:
-		await message.copy(chat_id=user_id)
-		return 200, None
-	except FloodWait as e:
-		await asyncio.sleep(e.x)
-		return send_msg(user_id, message)
-	except InputUserDeactivated:
-		return 400, f"{user_id} : deactivated\n"
-	except UserIsBlocked:
-		return 400, f"{user_id} : user is blocked\n"
-	except PeerIdInvalid:
-		return 400, f"{user_id} : user id invalid\n"
-	except Exception as e:
-		return 500, f"{user_id} : {traceback.format_exc()}\n"
-		
+        try:
+                await message.copy(chat_id=user_id)
+                return 200, None
+        except FloodWait as e:
+                await asyncio.sleep(e.x)
+                return send_msg(user_id, message)
+        except InputUserDeactivated:
+                return 400, f"{user_id} : deactivated\n"
+        except UserIsBlocked:
+                return 400, f"{user_id} : user is blocked\n"
+        except PeerIdInvalid:
+                return 400, f"{user_id} : user id invalid\n"
+        except Exception as e:
+                return 500, f"{user_id} : {traceback.format_exc()}\n"
+
 
 @Bot.on_callback_query()
 async def cb_handler(bot, update):
@@ -110,26 +110,26 @@ async def cb_handler(bot, update):
             text=ABOUT_TEXT.format(update.from_user.mention),
             reply_markup=ABOUT_BUTTONS,
             disable_web_page_preview=True
-	)
+        )
     elif update.data == "upload_envs.sh":
-		upload_service = update.data.split('_')[1]
-		await handle_upload(bot, update, upload_service)
-	    
+                upload_service = update.data.split('_')[1]
+                await handle_upload(bot, update, upload_service)
+
     elif update.data == "upload_imgbb":
-		upload_service = update.data.split('_')[1]
-		await handle_upload(bot, update, upload_service)
-	    
+                upload_service = update.data.split('_')[1]
+                await handle_upload(bot, update, upload_service)
+
     else:
         await update.message.delete()
 
 @Bot.on_message(filters.private & filters.command(["start"]))
 async def start(bot, update):
     if not await db.is_user_exist(update.from_user.id):
-	    await db.add_user(update.from_user.id)
+            await db.add_user(update.from_user.id)
     await update.reply_text(
         text=START_TEXT.format(update.from_user.mention),
         disable_web_page_preview=True,
-	    reply_markup=START_BUTTONS
+            reply_markup=START_BUTTONS
     )
 
 @Bot.on_message(filters.private & filters.command(["donate"]))
@@ -144,7 +144,7 @@ async def donation(bot, message):
 
 def upload_image_requests(image_path, upload_service):
     logging.info(f"Initiating upload process for {image_path} to {upload_service}.")
-    
+
     if upload_service == "envs.sh":
         upload_url = "https://envs.sh"
         logging.info("Using envs.sh for upload.")
@@ -224,13 +224,13 @@ async def upload(client, message):
         # Send a message to choose the upload service
         await client.send_message(
             chat_id=message.chat.id,
-            text="<b>Select upload service:</b>n<code>Please choose one of the options below:</code>",
+            text="Please choose one of the options below:",
             reply_markup=InlineKeyboardMarkup(
-				[[
+                                [[
                     InlineKeyboardButton(text="envs.sh", callback_data="upload_envs.sh"),
                     InlineKeyboardButton(text="imgbb", callback_data="upload_imgbb")
-				]]
-			),
+                                ]]
+                        ),
             reply_to_message_id=message.id
         )
         logging.info(f"Presented upload options to user {message.chat.id}.")
@@ -254,7 +254,7 @@ async def handle_upload(client, query, upload_service):
         # Download the media
         logging.info(f"Downloading media for user {query.from_user.id}.")
         path = await original_message.download()
-
+     
         uploading_message = await query.message.reply_text(f"<code>Uploading to {upload_service}...</code>")
         logging.info(f"Uploading media to {upload_service} for user {query.from_user.id}.")
 
@@ -274,7 +274,10 @@ async def handle_upload(client, query, upload_service):
             logging.exception(f"Error deleting file {path}: {error}")
 
         await uploading_message.delete()
-        await query.message.reply_photo(
+        await original_message.delete()
+        await query.message.delete()
+
+        CodeXBots=await query.message.reply_photo(
             photo=image_url,
             caption=f"<b>Upload completed to {upload_service} 👇</b>\n\nLink:\n\n<code>{image_url}</code>\n\n<b>ʙʏ - <a href='https://telegram.me/CodeXBro'>ʀᴀʜᴜʟ</a></b>",
             reply_markup=InlineKeyboardMarkup([[
@@ -287,7 +290,7 @@ async def handle_upload(client, query, upload_service):
         logging.info(f"Upload link sent to user {query.from_user.id}.")
 
         await asyncio.sleep(120)
-        await query.message.delete()
+        await CodeXBots.delete()
         logging.info(f"Message deleted after 120 seconds for user {query.from_user.id}.")
 
     except Exception as e:
@@ -306,46 +309,46 @@ async def users(bot, update):
 
 @Bot.on_message(filters.private & filters.command("broadcast") & filters.user(BOT_OWNER) & filters.reply)
 async def broadcast(bot, update):
-	broadcast_ids = {}
-	all_users = await db.get_all_users()
-	broadcast_msg = update.reply_to_message
-	while True:
-	    broadcast_id = ''.join([random.choice(string.ascii_letters) for i in range(3)])
-	    if not broadcast_ids.get(broadcast_id):
-	        break
-	out = await update.reply_text(text=f"Broadcast Started! You will be notified with log file when all the users are notified.")
-	start_time = time.time()
-	total_users = await db.total_users_count()
-	done = 0
-	failed = 0
-	success = 0
-	broadcast_ids[broadcast_id] = dict(total = total_users, current = done, failed = failed, success = success)
-	async with aiofiles.open('broadcast.txt', 'w') as broadcast_log_file:
-	    async for user in all_users:
-	        sts, msg = await send_msg(user_id = int(user['id']), message = broadcast_msg)
-	        if msg is not None:
-	            await broadcast_log_file.write(msg)
-	        if sts == 200:
-	            success += 1
-	        else:
-	            failed += 1
-	        if sts == 400:
-	            await db.delete_user(user['id'])
-	        done += 1
-	        if broadcast_ids.get(broadcast_id) is None:
-	            break
-	        else:
-	            broadcast_ids[broadcast_id].update(dict(current = done, failed = failed, success = success))
-	if broadcast_ids.get(broadcast_id):
-	    broadcast_ids.pop(broadcast_id)
-	completed_in = datetime.timedelta(seconds=int(time.time()-start_time))
-	await asyncio.sleep(3)
-	await out.delete()
-	if failed == 0:
-	    await update.reply_text(text=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.", quote=True)
-	else:
-	    await update.reply_document(document='broadcast.txt', caption=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.")
-	os.remove('broadcast.txt')
+        broadcast_ids = {}
+        all_users = await db.get_all_users()
+        broadcast_msg = update.reply_to_message
+        while True:
+            broadcast_id = ''.join([random.choice(string.ascii_letters) for i in range(3)])
+            if not broadcast_ids.get(broadcast_id):
+                break
+        out = await update.reply_text(text=f"Broadcast Started! You will be notified with log file when all the users are notified.")
+        start_time = time.time()
+        total_users = await db.total_users_count()
+        done = 0
+        failed = 0
+        success = 0
+        broadcast_ids[broadcast_id] = dict(total = total_users, current = done, failed = failed, success = success)
+        async with aiofiles.open('broadcast.txt', 'w') as broadcast_log_file:
+            async for user in all_users:
+                sts, msg = await send_msg(user_id = int(user['id']), message = broadcast_msg)
+                if msg is not None:
+                    await broadcast_log_file.write(msg)
+                if sts == 200:
+                    success += 1
+                else:
+                    failed += 1
+                if sts == 400:
+                    await db.delete_user(user['id'])
+                done += 1
+                if broadcast_ids.get(broadcast_id) is None:
+                    break
+                else:
+                    broadcast_ids[broadcast_id].update(dict(current = done, failed = failed, success = success))
+        if broadcast_ids.get(broadcast_id):
+            broadcast_ids.pop(broadcast_id)
+        completed_in = datetime.timedelta(seconds=int(time.time()-start_time))
+        await asyncio.sleep(3)
+        await out.delete()
+        if failed == 0:
+            await update.reply_text(text=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.", quote=True)
+        else:
+            await update.reply_document(document='broadcast.txt', caption=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.")
+        os.remove('broadcast.txt')
 
 
 Bot.run()
