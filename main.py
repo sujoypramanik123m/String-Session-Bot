@@ -111,7 +111,7 @@ async def cb_handler(bot, update):
             reply_markup=ABOUT_BUTTONS,
             disable_web_page_preview=True
 	)
-    elif update.data == "upload_envs":
+    elif update.data == "upload_envs.sh":
 		upload_service = update.data.split('_')[1]
 		await handle_upload(bot, update, upload_service)
 	    
@@ -227,7 +227,7 @@ async def upload(client, message):
             text="<b>Select upload service:</b>n<code>Please choose one of the options below:</code>",
             reply_markup=InlineKeyboardMarkup(
 				[[
-                    InlineKeyboardButton(text="envs.sh", callback_data="upload_envs"),
+                    InlineKeyboardButton(text="envs.sh", callback_data="upload_envs.sh"),
                     InlineKeyboardButton(text="imgbb", callback_data="upload_imgbb")
 				]]
 			),
