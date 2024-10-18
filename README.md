@@ -46,7 +46,7 @@ donate - To Support Developer
 
 ### 📶 DEPLOYEMENT
 <details>
-<summary><b>Tap On Me For Deply</summary>
+<summary><b>Tap On Me For Deploy</summary>
 <h3 align="center">
     ─「 ᴅᴇᴩʟᴏʏ ᴏɴ ʜᴇʀᴏᴋᴜ 」─
 </h3>
@@ -92,8 +92,8 @@ donate - To Support Developer
 
 ### ☕ BUY ME A COFFEE
 - [PayPal](https://paypal.me/RahulReviews)
-- [UPI](https://codexbots.github.io/Donate)</b>
+- [UPI](https://codexbots.github.io/Donate)
 
 ### 📌 NOTE
 
-𝐂𝐨𝐩𝐲𝐢𝐧𝐠 𝐨𝐫 𝐒𝐞𝐥𝐥𝐢𝐧𝐠 𝐭𝐡𝐢𝐬 𝐫𝐞𝐩𝐨 𝐢𝐬 𝐬𝐭𝐫𝐢𝐜𝐭𝐥𝐲 𝐩𝐫𝐨𝐡𝐢𝐛𝐢𝐭𝐞𝐝.
+𝘊𝘰𝘱𝘺𝘪𝘯𝘨 𝘰𝘳 𝘚𝘦𝘭𝘭𝘪𝘯𝘨 𝘵𝘩𝘪𝘴 𝘳𝘦𝘱𝘰 𝘪𝘴 𝘴𝘵𝘳𝘪𝘤𝘵𝘭𝘺 𝘱𝘳𝘰𝘩𝘪𝘣𝘪𝘵𝘦𝘥.</b>
