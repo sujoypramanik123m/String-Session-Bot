@@ -81,9 +81,9 @@ donate - To Support Developer
 
 💝 [CodeXBots](https://github.com/CodeXBots)
 
-💘  [yashoswalyo](https://github.com/yashoswalyo)
+💘  [Silicon](https://github.com/yashoswalyo)
 
-💖 And Thank You So Much To All Who Help In This Journey.
+💖 [VJBots](https://github.com/VJBots)
 </details>
 
 ### 💕 CONTACT DEVELOPER
