@@ -38,7 +38,9 @@
 <b><details><summary>Tap On Me For Commands</summary>
 ```
 start - Start The Bot
+users - To det details of Users
 donate - To Support Developer
+broadcast - To broadcast your message
 ```
 </b>
 </details>
