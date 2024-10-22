@@ -10,7 +10,8 @@
 
 <details><summary>Tap On Me For Bot Features</summary>
 
-- Upload image in IMGBB
+- Auto Delete
+- Broadcast feature
 - Upload image in envsh
 - Fully modified repo
 - Deploy To Koyeb + Heroku + Railway.
