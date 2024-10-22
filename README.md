@@ -26,7 +26,9 @@
 - `API_ID` : Get From [Here](https://youtu.be/RdMY6Lqfi9w)
 - `API_HASH` : Get From [Here](https://youtu.be/RdMY6Lqfi9w)
 - `BOT_TOKEN` : Get From [BotFather](https://youtu.be/aJILCCXfNVM)
+- `DATABASE_URL` : Mongodb [Database](https://youtu.be/pMJpHoiu1go)
 - `BOT_OWNER` : Your ID.
+- `UPDATE_CHANNEL` : Fsub Channel Username
 
 </details>
 </b>
