@@ -23,15 +23,11 @@
 
 <details><summary>Tap On Me For Environment Variable</summary>
 
-* `TELEGRAM_API` - Your Telegram API ID.
-* `API_HASH` - Your Telegram API HASH.
-* `BOT_TOKEN` - Get it from BotFather.
-* `OWNER` - Your ID
-* `DATABASE_URL` - Enter Mongodb database URL
-* `OWNER_USERNAME` - Your username without `@`
-* `PASSWORD` - Password to login bot. 
-* `LOGCHANNEL` - Log Channel ID.
-* `USER_SESSION_STRING` - Premium account pyrogram session string to upload upto 4GB
+- `API_ID` : Get From [Here](https://youtu.be/RdMY6Lqfi9w)
+- `API_HASH` : Get From [Here](https://youtu.be/RdMY6Lqfi9w)
+- `BOT_TOKEN` : Get From [BotFather](https://youtu.be/aJILCCXfNVM)
+- `BOT_OWNER` : Your ID.
+
 </details>
 </b>
 
