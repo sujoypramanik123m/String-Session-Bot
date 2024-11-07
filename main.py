@@ -16,6 +16,7 @@ UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "")
 BOT_OWNER = int(os.environ["BOT_OWNER"])
 DATABASE_URL = os.environ["DATABASE_URL"]
 db = Database(DATABASE_URL, "mediatourl")
+IMGBB_API_KEY = os.environ.get("IMGBB_API_KEY", "")
 
 Bot = Client(
     "Media To Url Bot",
@@ -115,6 +116,62 @@ async def start(bot, update):
         text=START_TEXT.format(update.from_user.mention),
         disable_web_page_preview=True,
 	reply_markup=START_BUTTONS
+    )
+
+@Bot.on_message(filters.command("imgbb") & filters.private)
+async def imgbb_upload(bot: Client, update: Message):
+    replied = update.reply_to_message
+    if not replied:
+        await update.reply_text("𝚁𝙴𝙿𝙻𝚈 𝚃𝙾 𝙰 𝙿𝙷𝙾𝚃𝙾 𝙾𝚁 𝚅𝙸𝙳𝙴𝙾 𝚄𝙽𝙳𝙴𝚁 𝟻𝙼𝙱.")
+        return
+    
+    if not (replied.photo or replied.video or replied.animation):
+        await update.reply_text("Please reply to a photo, video, or GIF.")
+        return
+
+    text = await update.reply_text("<code>ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ ᴛᴏ ᴍʏ sᴇʀᴠᴇʀ</code>", disable_web_page_preview=True)
+    
+    # Download the media
+    media = await update.reply_to_message.download()
+
+    await text.edit_text("<code>ᴜᴘʟᴏᴀᴅɪɴɢ...</code>", disable_web_page_preview=True)
+
+    # Uploading to imgbb
+    try:
+        with open(media, 'rb') as file:
+            response = requests.post(
+                f"https://api.imgbb.com/1/upload?key={IMGBB_API_KEY}",
+                files={"image": file}
+            )
+            response_data = response.json()
+            
+            if response_data['success']:
+                image_url = response_data['data']['url']
+            else:
+                raise Exception(response_data['error']['message'])
+    except Exception as error:
+        print(error)
+        await text.edit_text(f"Error: {error}", disable_web_page_preview=True)
+        return
+    
+    # Clean up the downloaded file
+    try:
+        os.remove(media)
+    except Exception as error:
+        print(error)
+
+    await text.edit_text(
+        text=f"<b>ʏᴏᴜʀ ᴄʟᴏᴜᴅ ʟɪɴᴋ ᴄᴏᴍᴘʟᴇᴛᴇᴅ 👇</b>\n\n𝑳𝒊𝒏𝒌 :-\n\n<code>{image_url}</code> \n\n<b>ʙʏ - <a href='https://telegram.me/CodeXBro'>ʀᴀʜᴜʟ</a></b>",
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup([
+            [
+                InlineKeyboardButton(text="• ᴏᴘᴇɴ ʟɪɴᴋ •", url=image_url),
+                InlineKeyboardButton(text="• sʜᴀʀᴇ ʟɪɴᴋ •", url=f"https://telegram.me/share/url?url={image_url}")
+            ],
+            [
+                InlineKeyboardButton(text="✗ ᴄʟᴏsᴇ ✗", callback_data="close")
+            ]
+        ])
     )
 
 @Bot.on_message(filters.private & filters.command(["donate"]))
