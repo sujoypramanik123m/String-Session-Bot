@@ -13,6 +13,7 @@
 - Auto Delete
 - Broadcast feature
 - Upload image in envsh
+- Upload image in imgbb
 - Fully modified repo
 - Deploy To Koyeb + Heroku + Railway.
 - Developer Service 24x7.
