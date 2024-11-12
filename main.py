@@ -10,18 +10,14 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, PeerIdInvalid, UserNotParticipant, UserBannedInChannel
 from pyrogram.errors.exceptions.bad_request_400 import PeerIdInvalid
 from database import Database
-
-
-UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "")
-BOT_OWNER = int(os.environ["BOT_OWNER"])
-DATABASE_URL = os.environ["DATABASE_URL"]
+from config import API_HASH, API_ID, BOT_TOKEN, UPDATE_CHANNEL, BOT_OWNER, DATABASE_URL
 db = Database(DATABASE_URL, "mediatourl")
 
 Bot = Client(
     "Media To Url Bot",
-    bot_token = os.environ["BOT_TOKEN"],
-    api_id = int(os.environ["API_ID"]),
-    api_hash = os.environ["API_HASH"],
+    bot_token = BOT_TOKEN,
+    api_id = API_ID,
+    api_hash = API_HASH,
 )
 
 START_TEXT = """**{},
