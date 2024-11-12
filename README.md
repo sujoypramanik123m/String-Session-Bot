@@ -82,8 +82,7 @@ broadcast - To broadcast your message
 
 
 💝 [CodeXBots](https://github.com/CodeXBots)
-</details>
-[WeRdeveloper](https://github.com/WeRdeveloper)
+[WeRdeveloper](https://github.com/WeRdevelopers)
 </details>
 
 ### 💕 CONTACT DEVELOPER
