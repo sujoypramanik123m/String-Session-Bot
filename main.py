@@ -1,4 +1,4 @@
-# (C) @CodeXBots
+# (C) @TechifyBots
 
 import os, time, math, json
 import string, random, traceback
@@ -26,7 +26,7 @@ START_TEXT = """**{},
 
 ɪ ᴄᴀɴ ᴄᴏɴᴠᴇʀᴛ ᴀɴʏ ᴍᴇᴅɪᴀ (ᴘʜᴏᴛᴏ/ᴠɪᴅᴇᴏ) ᴜɴᴅᴇʀ 𝟷𝟶ᴍʙ.
 
-ᴍʏ ᴄʀᴇᴀᴛᴏʀ : <a href='https://telegram.me/CodeXBro'>ʀᴀʜᴜʟ</a>**"""
+ᴍʏ ᴄʀᴇᴀᴛᴏʀ : <a href='https://telegram.me/CallOwnerBot'>ʀᴀʜᴜʟ</a>**"""
 
 ABOUT_TEXT = """**{},
 
@@ -34,8 +34,8 @@ ABOUT_TEXT = """**{},
 ⚙️ ᴄʜɪʟʟɪɴɢ ᴏɴ : <a href="https://www.heroku.com/">ʜᴇʀᴏᴋᴜ</a>
 🍿 ʙʀᴀɪɴ ꜰᴜᴇʟᴇᴅ : <a href="https://www.mongodb.com/">ᴍᴏɴɢᴏ ᴅʙ</a>
 😚 ᴄᴏᴅɪɴɢ ᴍᴜsᴄʟᴇs : <a href="https://www.python.org/">ᴘʏᴛʜᴏɴ 3</a>
-👨‍💻 ᴍʏ ᴄʀᴇᴀᴛᴏʀ : <a href="https://telegram.me/CodeXBro">ʀᴀʜᴜʟ</a>
-😜 ʀᴇᴘᴏ : <a href="https://github.com/CodeXBots">ʟɪɴᴋ</a>**"""
+👨‍💻 ᴍʏ ᴄʀᴇᴀᴛᴏʀ : <a href="https://telegram.me/CallOwnerBot">ʀᴀʜᴜʟ</a>
+😜 ʀᴇᴘᴏ : <a href="https://github.com/TechifyBots">ʟɪɴᴋ</a>**"""
 
 DONATE_TXT = """<blockquote>❤️‍🔥 𝐓𝐡𝐚𝐧𝐤𝐬 𝐟𝐨𝐫 𝐬𝐡𝐨𝐰𝐢𝐧𝐠 𝐢𝐧𝐭𝐞𝐫𝐞𝐬𝐭 𝐢𝐧 𝐃𝐨𝐧𝐚𝐭𝐢𝐨𝐧</blockquote>
 
@@ -56,14 +56,14 @@ START_BUTTONS = InlineKeyboardMarkup(
         InlineKeyboardButton('ᴅᴇᴠᴇʟᴏᴘᴇʀ', url='https://youtube.com/@RahulReviews')
 	],[
         InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about'),
-        InlineKeyboardButton('ꜱᴜᴘᴘᴏʀᴛ', url='https://telegram.me/CodeXSupport')
+        InlineKeyboardButton('ꜱᴜᴘᴘᴏʀᴛ', url='https://telegram.me/TechifySupport')
         ]]
     )
 
 ABOUT_BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('🫡 ᴅᴏɴᴀᴛᴇ', url='https://codexbots.github.io/Donate'),
-        InlineKeyboardButton('👨‍💻 ᴏᴡɴᴇʀ', url='https://telegram.me/CodexBro')
+        InlineKeyboardButton('🫡 ᴅᴏɴᴀᴛᴇ', url='https://TechifyBots.github.io/Donate'),
+        InlineKeyboardButton('👨‍💻 ᴏᴡɴᴇʀ', url='https://telegram.me/CallOwnerBot')
 	],[
         InlineKeyboardButton('⋞ ʙᴀᴄᴋ', callback_data='home')
         ]]
@@ -161,7 +161,7 @@ async def upload(client, message):
             return
         except Exception as error:
             print(error)
-            await message.reply_text(text="<b>ꜱᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ ᴡʀᴏɴɢ ᴄᴏɴᴛᴀᴄᴛ ᴍʏ <a href='https://telegram.me/CodeXBro'>ᴄʀᴇᴀᴛᴏʀ</a>.</b>", disable_web_page_preview=True)
+            await message.reply_text(text="<b>ꜱᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ ᴡʀᴏɴɢ ᴄᴏɴᴛᴀᴄᴛ ᴍʏ <a href='https://telegram.me/CallOwnerBot'>ᴄʀᴇᴀᴛᴏʀ</a>.</b>", disable_web_page_preview=True)
             return
 
     file_size_limit = 10 * 1024 * 1024  # 10 MB in bytes
@@ -190,9 +190,9 @@ async def upload(client, message):
         print(f"Error removing file: {error}")
         
     await uploading_message.delete()
-    codexbots=await message.reply_photo(
+    techifybots=await message.reply_photo(
         photo=f'{image_url}',
-        caption=f"<b>ʏᴏᴜʀ ᴄʟᴏᴜᴅ ʟɪɴᴋ ᴄᴏᴍᴘʟᴇᴛᴇᴅ 👇</b>\n\n𝑳𝒊𝒏𝒌 :-\n\n<code>{image_url}</code> \n\n<b>ʙʏ - <a href='https://telegram.me/CodeXBro'>ʀᴀʜᴜʟ</a></b>",
+        caption=f"<b>ʏᴏᴜʀ ᴄʟᴏᴜᴅ ʟɪɴᴋ ᴄᴏᴍᴘʟᴇᴛᴇᴅ 👇</b>\n\n𝑳𝒊𝒏𝒌 :-\n\n<code>{image_url}</code> \n\n<b>ʙʏ - <a href='https://telegram.me/RahulReviewsYT'>ʀᴀʜᴜʟ</a></b>",
         #disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[
             InlineKeyboardButton(text="• ᴏᴘᴇɴ ʟɪɴᴋ •", url=image_url),
@@ -202,7 +202,7 @@ async def upload(client, message):
         ]])
    )
     await asyncio.sleep(120)
-    await codexbots.delete()
+    await techifybots.delete()
 
 @Bot.on_message(filters.private & filters.command("users") & filters.user(BOT_OWNER))
 async def users(bot, update):
