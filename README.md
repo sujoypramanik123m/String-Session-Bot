@@ -32,7 +32,6 @@
 - `UPDATE_CHANNEL` : Fsub Channel Username
 
 </details>
-</b>
 
 ### 😍 COMMANDS
 
