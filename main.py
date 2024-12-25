@@ -43,7 +43,7 @@ DONATE_TXT = """<blockquote>❤️‍🔥 𝐓𝐡𝐚𝐧𝐤𝐬 𝐟𝐨𝐫 
 
 ❣️ 𝐷𝑜𝑛𝑎𝑡𝑖𝑜𝑛𝑠 𝑎𝑟𝑒 𝑟𝑒𝑎𝑙𝑙𝑦 𝑎𝑝𝑝𝑟𝑒𝑐𝑖𝑎𝑡𝑒𝑑 𝑖𝑡 ℎ𝑒𝑙𝑝𝑠 𝑖𝑛 𝑏𝑜𝑡 𝑑𝑒𝑣𝑒𝑙𝑜𝑝𝑚𝑒𝑛𝑡
 
-💖 𝐔𝐏𝐈 𝐈𝐃 : <code>RahulReviews@UPI</code>
+💖 𝐔𝐏𝐈 𝐈𝐃 : <code>TechifyBots@UPI</code>
 """
 
 FORCE_SUBSCRIBE_TEXT = """ 
@@ -53,7 +53,7 @@ FORCE_SUBSCRIBE_TEXT = """
 
 START_BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('ᴅᴇᴠᴇʟᴏᴘᴇʀ', url='https://youtube.com/@RahulReviews')
+        InlineKeyboardButton('ᴅᴇᴠᴇʟᴏᴘᴇʀ', url='https://youtube.com/@TechifyBots')
 	],[
         InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about'),
         InlineKeyboardButton('ꜱᴜᴘᴘᴏʀᴛ', url='https://telegram.me/TechifySupport')
@@ -192,7 +192,7 @@ async def upload(client, message):
     await uploading_message.delete()
     techifybots=await message.reply_photo(
         photo=f'{image_url}',
-        caption=f"<b>ʏᴏᴜʀ ᴄʟᴏᴜᴅ ʟɪɴᴋ ᴄᴏᴍᴘʟᴇᴛᴇᴅ 👇</b>\n\n𝑳𝒊𝒏𝒌 :-\n\n<code>{image_url}</code> \n\n<b>ʙʏ - <a href='https://telegram.me/RahulReviewsYT'>ʀᴀʜᴜʟ</a></b>",
+        caption=f"<b>ʏᴏᴜʀ ᴄʟᴏᴜᴅ ʟɪɴᴋ ᴄᴏᴍᴘʟᴇᴛᴇᴅ 👇</b>\n\n𝑳𝒊𝒏𝒌 :-\n\n<code>{image_url}</code> \n\n<b>ʙʏ - <a href='https://telegram.me/TechifyRahul'>ʀᴀʜᴜʟ</a></b>",
         #disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[
             InlineKeyboardButton(text="• ᴏᴘᴇɴ ʟɪɴᴋ •", url=image_url),
