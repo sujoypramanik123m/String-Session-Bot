@@ -1,5 +1,5 @@
 <h1 align="center">
- <b><a href="https://youtu.be/FEtTOCOOUq8" target="/blank">Media To Link</a>
+ <b><a href="https://youtu.be/FEtTOCOOUq8" target="/blank">String Session Bot</a>
 </h1>
 
 <p align="center">🩷 Thanks for Being Here 🩷</p>
@@ -10,13 +10,15 @@
 
 <details><summary>Tap On Me For Bot Features</summary>
 
-- Auto Delete
-- Broadcast feature
-- Upload image in envsh
-- Upload image in imgbb
+- Generate Pyrogram Session
+- Generate Pyrogram Bot Session
+- Generate Telethon Session
+- Generate Telethon Bot Session
+- Can Add Force Subscribe Channel
+- Can Broadcast Message To Users
 - Fully modified repo
 - Deploy To Koyeb + Heroku + Railway.
-- Developer Service 24x7.
+- [Developer support](https://telegram.me/TechifySupport) 24x7.
 </details>
 
 
