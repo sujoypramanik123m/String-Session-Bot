@@ -29,9 +29,9 @@
 - `API_ID` : Get From [Here](https://youtu.be/RdMY6Lqfi9w)
 - `API_HASH` : Get From [Here](https://youtu.be/RdMY6Lqfi9w)
 - `BOT_TOKEN` : Get From [BotFather](https://youtu.be/aJILCCXfNVM)
-- `DATABASE_URL` : Mongodb [Database](https://youtu.be/pMJpHoiu1go)
-- `BOT_OWNER` : Your ID.
-- `UPDATE_CHANNEL` : Fsub Channel Username
+- `MONGO_DB_URI` : Mongodb [Database](https://youtu.be/pMJpHoiu1go)
+- `OWNER_ID` : Your Telegram ID.
+- `AUTH_CHANNEL` : Fsub Channel ID.
 
 </details>
 
@@ -40,8 +40,9 @@
 <b><details><summary>Tap On Me For Commands</summary>
 ```
 start - Start The Bot
+gen - To start generation string session
 users - To det details of Users
-donate - To Support Developer
+cancel - To cancel the string generation process
 broadcast - To broadcast your message
 ```
 </b>
