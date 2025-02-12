@@ -14,7 +14,7 @@
 - Generate Pyrogram Bot Session
 - Generate Telethon Session
 - Generate Telethon Bot Session
-- Can Add Force Subscribe Channel
+- Can Add Multiple Force Subscribe Channel
 - Can Broadcast Message To Users
 - Fully modified repo
 - Deploy To Koyeb + Heroku + Railway.
@@ -31,7 +31,8 @@
 - `BOT_TOKEN` : Get From [BotFather](https://youtu.be/aJILCCXfNVM)
 - `MONGO_DB_URI` : Mongodb [Database](https://youtu.be/pMJpHoiu1go)
 - `OWNER_ID` : Your Telegram ID.
-- `AUTH_CHANNEL` : Fsub Channel ID.
+- `LOG_CHANNEL` : Log Channel ID.
+- `AUTH_CHANNELS` : Fsub Channel ID.
 
 </details>
 
