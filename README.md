@@ -57,7 +57,7 @@ broadcast - To broadcast your message
 
 💝 [TechifyBots](https://github.com/TechifyBots)
 
-💞[WeRdeveloper](https://github.com/WeRdevelopers)
+💞[Vijay](https://github.com/VJBots)
 </details>
 
 ### 💕 CONTACT DEVELOPER
