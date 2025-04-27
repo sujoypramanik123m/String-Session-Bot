@@ -59,7 +59,7 @@ broadcast - To broadcast your message
 
 ### 😇 [SUPPORT](https://techifybots.github.io/PayWeb)
 
-### 🥳 [CONTACT DEVELOPER](https://telegram.me/TechifySupport)
+### 🥳 [DEVELOPER](https://telegram.me/TechifySupport)
 
 ### 📌 NOTE
 
