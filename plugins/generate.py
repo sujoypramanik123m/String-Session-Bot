@@ -1,10 +1,11 @@
-import config
+from config import *
 from telethon import TelegramClient
 from pyrogram import Client, filters
 from asyncio.exceptions import TimeoutError
 from telethon.sessions import StringSession
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
-from plugins.db import db
+from .db import db
+from .fsub import get_fsub
 from pyrogram.errors import (
     ApiIdInvalid,
     PhoneNumberInvalid,
@@ -44,6 +45,7 @@ async def main(_, msg):
 async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bool = False):
     if not await db.is_user_exist(msg.from_user.id):
         await db.add_user(msg.from_user.id, msg.from_user.first_name)
+    if IS_FSUB and not await get_fsub(bot, msg):return
     if telethon:
         ty = "𝗧𝗘𝗟𝗘𝗧𝗛𝗢𝗡"
     else:
