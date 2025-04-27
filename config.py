@@ -1,4 +1,5 @@
-from os import environ
+import os
+from typing import List
 
 API_ID = int(environ.get("API_ID", ""))
 API_HASH = environ.get("API_HASH", "")
@@ -7,5 +8,5 @@ OWNER_ID = int(environ.get("OWNER_ID", ""))
 LOG_CHANNEL = int(environ.get("LOG_CHANNEL", ""))
 MONGO_DB_URI = environ.get("MONGO_DB_URI", "")
 PORT = int(environ.get('PORT', 8080))
-AUTH_CHANNELS = environ.get("AUTH_CHANNEL", "")
-AUTH_CHANNELS = [int(channel_id) for channel_id in AUTH_CHANNELS.split(",")]
+IS_FSUB = bool(os.environ.get("FSUB", True)) # Set "True" For Enable Force Subscribe
+AUTH_CHANNELS = list(map(int, os.environ.get("AUTH_CHANNEL", "-100xxxxxxxxx -100xxxxxxx").split())) # Add Multiple channel id
