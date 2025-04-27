@@ -50,17 +50,17 @@ broadcast - To broadcast your message
 </details>
 
 
-## 💞 CREDIT
+### 💞 CREDIT
 
 - [TechifyBots](https://github.com/TechifyBots)
 
 - [Vijay](https://github.com/VJBots)
 </details>
 
-## 😇 [SUPPORT](https://techifybots.github.io/PayWeb)
+### 😇 [SUPPORT](https://techifybots.github.io/PayWeb)
 
-## 🥳 [CONTACT DEVELOPER](https://telegram.me/TechifySupport)
+### 🥳 [CONTACT DEVELOPER](https://telegram.me/TechifySupport)
 
-## 📌 NOTE
+### 📌 NOTE
 
 𝘊𝘰𝘱𝘺𝘪𝘯𝘨 𝘰𝘳 𝘚𝘦𝘭𝘭𝘪𝘯𝘨 𝘵𝘩𝘪𝘴 𝘳𝘦𝘱𝘰 𝘪𝘴 𝘴𝘵𝘳𝘪𝘤𝘵𝘭𝘺 𝘱𝘳𝘰𝘩𝘪𝘣𝘪𝘵𝘦𝘥.</b>
