@@ -50,23 +50,16 @@ broadcast - To broadcast your message
 </details>
 
 
-### 🥳 CREDIT
+### 💞 CREDIT
 
-<details><summary>Tap On Me For Credit</summary>
+- [TechifyBots](https://github.com/TechifyBots)
 
-
-💝 [TechifyBots](https://github.com/TechifyBots)
-
-💞[Vijay](https://github.com/VJBots)
+- [Vijay](https://github.com/VJBots)
 </details>
 
-### 💕 CONTACT DEVELOPER
+### 🥳 [CONTACT DEVELOPER](https://telegram.me/TechifySupport)
 
-- [Rahul](https://telegram.me/TechifySupport)
-
-### ☕ BUY ME A COFFEE
-- [PayPal](https://paypal.me/TechifyBots)
-- [UPI](https://TechifyBots.github.io/Donate)
+### 😇 [SUPPORT](https://techifybots.github.io/PayWeb)
 
 ### 📌 NOTE
 
