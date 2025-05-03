@@ -38,14 +38,8 @@ buttons_ques = [
 
 gen_button = [[InlineKeyboardButton(text="ɢᴇɴᴇʀᴀᴛᴇ sᴛʀɪɴɢ sᴇssɪᴏɴ", callback_data="generate")]]
 
-@Client.on_message(filters.private & ~filters.forwarded & filters.command(["gen"]))
-async def main(_, msg):
-    await msg.reply(ask_ques, reply_markup=InlineKeyboardMarkup(buttons_ques))
 
 async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bool = False):
-    if not await db.is_user_exist(msg.from_user.id):
-        await db.add_user(msg.from_user.id, msg.from_user.first_name)
-    if IS_FSUB and not await get_fsub(bot, msg):return
     if telethon:
         ty = "𝗧𝗘𝗟𝗘𝗧𝗛𝗢𝗡"
     else:
