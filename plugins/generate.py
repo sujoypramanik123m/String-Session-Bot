@@ -4,8 +4,6 @@ from pyrogram import Client, filters
 from asyncio.exceptions import TimeoutError
 from telethon.sessions import StringSession
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
-from .db import db
-from .fsub import get_fsub
 from pyrogram.errors import (
     ApiIdInvalid,
     PhoneNumberInvalid,
