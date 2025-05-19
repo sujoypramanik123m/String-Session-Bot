@@ -29,8 +29,8 @@
 - `API_ID` : Get From [Here](https://youtu.be/y5FwAobQ-Kc)
 - `API_HASH` : Get From [Here](https://youtu.be/y5FwAobQ-Kc)
 - `BOT_TOKEN` : Get From [BotFather](https://youtu.be/aJILCCXfNVM)
-- `MONGO_DB_URI` : Mongodb [Database](https://youtu.be/j8LIuM7vv18)
-- `OWNER_ID` : Your Telegram ID.
+- `DB_URI` : Mongodb [Database](https://youtu.be/j8LIuM7vv18)
+- `ADMIN` : Your Telegram ID.
 - `LOG_CHANNEL` : Log Channel ID.
 - `AUTH_CHANNELS` : Fsub Channel ID.
 
@@ -42,7 +42,7 @@
 ```
 start - Start The Bot
 gen - To start generation string session
-users - To det details of Users
+stats - To get bot stats
 cancel - To cancel the string generation process
 broadcast - To broadcast your message
 ```
