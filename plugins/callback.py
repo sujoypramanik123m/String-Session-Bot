@@ -2,6 +2,7 @@ import traceback
 from pyrogram import Client
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 from Script import text
+from config import ADMIN
 from .main import generate_session, ask_ques, buttons_ques
 
 @Client.on_callback_query()
@@ -38,7 +39,7 @@ async def callback_query_handler(client, query: CallbackQuery):
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup([
                     [InlineKeyboardButton('💥 ʀᴇᴘᴏ', url='https://github.com/TechifyBots/String-Session-Bot'),
-                     InlineKeyboardButton('👨‍💻 ᴏᴡɴᴇʀ', url='https://telegram.me/TechifyRahul')],
+                     InlineKeyboardButton('👨‍💻 ᴏᴡɴᴇʀ', user_id=int(ADMIN))],
                     [InlineKeyboardButton("ʙᴀᴄᴋ", callback_data="start"),
                      InlineKeyboardButton("ᴄʟᴏꜱᴇ", callback_data="close")]
                 ])
