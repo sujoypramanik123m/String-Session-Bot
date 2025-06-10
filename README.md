@@ -54,9 +54,6 @@ broadcast - To broadcast your message
 
 - [TechifyBots](https://github.com/TechifyBots)
 
-- [Vijay](https://github.com/VJBots)
-</details>
-
 ### 😇 [SUPPORT](https://techifybots.github.io/PayWeb)
 
 ### 🥳 [DEVELOPER](https://telegram.me/TechifySupport)
