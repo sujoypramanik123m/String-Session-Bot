@@ -5,7 +5,7 @@ class text(object):
 
 nᴜꜱᴇ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴛᴏ sᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ sᴛʀɪɴɢ sᴇssɪᴏɴ
 
-<blockquote>ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ : <a href='https://telegram.me/TechifyRahul'>ʀᴀʜᴜʟ</a></blockquote></b>"""
+<blockquote>Mᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ : <a href='https://telegram.me/UncleChipssBot'>𝙎𝙪𝙟𝙤𝙮™</a></blockquote></b>"""
 
   LOG = """#New_User
 
@@ -20,7 +20,7 @@ Sᴇʀᴠᴇʀ: Rᴇɴᴅᴇʀ 🌐
 Bᴜɪʟᴅ Sᴛᴀᴛᴜs: V1.3 🚀
 Sᴏᴜʀᴄᴇ Cᴏᴅᴇ: Aᴠᴀɪʟᴀʙʟᴇ (Fʀᴇᴇ) 💻 
 
-<blockquote>ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ : <a href='https://telegram.me/TechifyRahul'>ʀᴀʜᴜʟ</a></blockquote></b>"""
+<blockquote>ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ : <a href='https://telegram.me/UncleChipssBot'>𝙎𝙪𝙟𝙤𝙮™</a></blockquote></b>"""
   
   HELP = """<b>{},
 
@@ -28,4 +28,4 @@ Sᴏᴜʀᴄᴇ Cᴏᴅᴇ: Aᴠᴀɪʟᴀʙʟᴇ (Fʀᴇᴇ) 💻
 
 ᴊᴜsᴛ ɢᴏ ʙᴀᴄᴋ ᴀɴᴅ ᴄʟɪᴄᴋ ᴏɴ ɢᴇɴᴇʀᴀᴛᴇ sᴛʀɪɴɢ sᴇssɪᴏɴ ʙᴜᴛᴛᴏɴ ᴀɴᴅ ᴛʜᴇɴ ꜰᴏʟʟᴏᴡ ᴛʜᴇ sᴛᴇᴘs
 
-<blockquote>ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ : <a href='https://telegram.me/TechifyRahul'>ʀᴀʜᴜʟ</a></blockquote></b>"""
+<blockquote>ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ : <a href='https://telegram.me/UncleChipssBot'>𝙎𝙪𝙟𝙤𝙮™</a></blockquote></b>"""
