@@ -1,9 +1,9 @@
 class text(object):
-  START = """<b>{},
+  START = """<b>Hi {}✨,
 
-ɪ ᴄᴀɴ ɢᴇɴᴇʀᴀᴛᴇ ᴘʏʀᴏɢʀᴀᴍ ᴀɴᴅ ᴛᴇʟᴇᴛʜᴏɴ ꜱᴛʀɪɴɢ ꜱᴇꜱꜱɪᴏɴ
+I ᴄᴀɴ ɢᴇɴᴇʀᴀᴛᴇ ᴘʏʀᴏɢʀᴀᴍ ᴀɴᴅ ᴛᴇʟᴇᴛʜᴏɴ ꜱᴛʀɪɴɢ ꜱᴇꜱꜱɪᴏɴ.
 
-nᴜꜱᴇ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴛᴏ sᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ sᴛʀɪɴɢ sᴇssɪᴏɴ
+Uꜱᴇ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴛᴏ sᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ sᴛʀɪɴɢ sᴇssɪᴏɴ.
 
 <blockquote>Mᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ : <a href='https://telegram.me/UncleChipssBot'>𝙎𝙪𝙟𝙤𝙮™</a></blockquote></b>"""
 
@@ -18,7 +18,6 @@ Lɪʙʀᴀʀʏ: Pʏʀᴏɢʀᴀᴍ 📚
 Lᴀɴɢᴜᴀɢᴇ: Pʏᴛʜᴏɴ 🐍
 Sᴇʀᴠᴇʀ: Rᴇɴᴅᴇʀ 🌐
 Bᴜɪʟᴅ Sᴛᴀᴛᴜs: V1.3 🚀
-Sᴏᴜʀᴄᴇ Cᴏᴅᴇ: Aᴠᴀɪʟᴀʙʟᴇ (Fʀᴇᴇ) 💻 
 
 <blockquote>ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ : <a href='https://telegram.me/UncleChipssBot'>𝙎𝙪𝙟𝙤𝙮™</a></blockquote></b>"""
   
