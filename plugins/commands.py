@@ -41,6 +41,7 @@ async def start_cmd(client, message):
             [InlineKeyboardButton('🔥Gᴇɴᴇʀᴀᴛᴇ Sᴛʀɪɴɢ Sᴇssɪᴏɴ🔥', callback_data='generate')]
         ]),
         disable_web_page_preview=True
+        message_effect_id="5044134455711629726"
     )
 
 @Client.on_message(filters.command("stats") & filters.private & filters.user(ADMIN))
