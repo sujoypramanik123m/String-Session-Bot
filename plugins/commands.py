@@ -22,7 +22,7 @@ def parse_button_markup(text: str):
 
     return InlineKeyboardMarkup(buttons) if buttons else None, "\n".join(final_text_lines).strip()
 
-@Client.on_message(filters.command("start"))
+@Client.send_message(filters.command("start"))
 async def start_cmd(client, message):
     if await tb.get_user(message.from_user.id) is None:
         await tb.add_user(message.from_user.id, message.from_user.first_name)
